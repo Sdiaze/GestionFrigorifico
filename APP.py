@@ -2,6 +2,7 @@ from dash import Dash, html, dcc, Input, Output, State, no_update
 import dash_bootstrap_components as dbc
 import pandas as pd
 import pyodbc
+import flask import Response 
 from conexion_bd import (
     crear_usuario,
     verificar_credenciales,
@@ -13,6 +14,9 @@ from conexion_bd import (
     conectar_bd    
 )
 
+@server.route("/health")
+def health_check():
+    return Response("Healthy", status=200)
 # --- Inicialización de la Aplicación ---
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
 
