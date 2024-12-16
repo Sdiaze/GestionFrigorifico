@@ -20,9 +20,12 @@ from conexion_bd import (
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
 server = app.server
 
+from flask import Response
+
 @server.route("/health")
 def health_check():
-    return Response("Healthy", status=200)
+    return Response("200", status=200, mimetype='text/plain')
+
 
 
 # --- Layouts ---
