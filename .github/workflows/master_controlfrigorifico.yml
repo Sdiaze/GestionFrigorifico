@@ -74,4 +74,6 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'ControlFrigorifico'
+          slot-name: 'staging'  # Despliega en el slot staging
+          package: .
           
